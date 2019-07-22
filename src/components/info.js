@@ -4,7 +4,7 @@ class Info extends Component {
     render() {
         return (
             <div>
-                <p id="first_p">First app</p>
+                <p id="first_p" style={{color : this.props.my_color}}>First app</p>
                 <p>Hello world!!!</p>
             </div>
         );

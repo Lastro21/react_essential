@@ -12,10 +12,15 @@ class App extends Component {
     state = {
         name: undefined,
         age: undefined,
-        error: undefined
+        error: undefined,
+        color: undefined
     };
 
     gettingInfoFromOutAPI = async (e) => {
+
+        this.setState({
+            color: "blue"
+        });
 
         e.preventDefault();
 
@@ -28,13 +33,15 @@ class App extends Component {
             this.setState({
                 name: api_url.name,
                 age: api_url.age,
-                error: undefined
+                error: undefined,
+                // color: "blue"
             });
         } else {
             this.setState({
                 name: undefined,
                 age: undefined,
-                error: "Error: empty input."
+                error: "Error: empty input.",
+                // color: "blue"
             });
         }
 
@@ -44,9 +51,9 @@ class App extends Component {
     render() {
         return (
             <div id="mainWrapper">
-                <Info/>
-                <Form getInfoApiMethod={this.gettingInfoFromOutAPI}/>
-                <User name={this.state.name} age={this.state.age} error={this.state.error}/>
+                <Info my_color={this.state.color} />
+                <Form getInfoApiMethod={this.gettingInfoFromOutAPI} />
+                <User name={this.state.name} age={this.state.age} error={this.state.error} />
             </div>
         );
     }
