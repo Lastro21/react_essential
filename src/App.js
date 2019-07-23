@@ -6,7 +6,7 @@ import Form from "./components/form";
 import User from "./components/user";
 import Path_1 from "./components/path_1";
 import Path_2 from "./components/path_2";
-import {BrowserRouter, Route} from "react-router-dom";
+import {BrowserRouter, NavLink, Route} from "react-router-dom";
 
 
 const one_path = "test";
@@ -70,6 +70,7 @@ class App extends Component {
                     <User name={this.state.name} age={this.state.age} error={this.state.error}/>
                     <Route path="/path_1" component={Path_1} />
                     <Route path="/path_2" component={Path_2} />
+                    <NavLink to="/path_1"> Link path_1 </NavLink>
                 </div>
             </BrowserRouter>
         );
