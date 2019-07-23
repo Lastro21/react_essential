@@ -5,3 +5,8 @@ body{
 .App {
   text-align: center;
 }
+
+a {
+  color: lime;
+  text-decoration: none;
+}

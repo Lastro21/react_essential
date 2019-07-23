@@ -6,6 +6,9 @@ import Form from "./components/form";
 import User from "./components/user";
 import Path_1 from "./components/path_1";
 import Path_2 from "./components/path_2";
+
+import Path_3 from "./components/path_3";
+
 import {BrowserRouter, NavLink, Route} from "react-router-dom";
 
 
@@ -17,7 +20,8 @@ class App extends Component {
         name: undefined,
         age: undefined,
         error: undefined,
-        color: undefined
+        color: undefined,
+        any_custom_param: "My_custom_param from global state!!!"
     };
 
     gettingInfoFromOutAPI = async (e) => {
@@ -71,6 +75,8 @@ class App extends Component {
                     <Route path="/path_1" component={Path_1} />
                     <Route path="/path_2" component={Path_2} />
                     <NavLink to="/path_1"> Link path_1 </NavLink>
+
+                    <Route path="/path_3" render={ () => <Path_3 any_param={this.state.any_custom_param} /> } />
                 </div>
             </BrowserRouter>
         );
