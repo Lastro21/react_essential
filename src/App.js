@@ -7,12 +7,23 @@ import User from "./components/user";
 import Path_1 from "./components/path_1";
 import Path_2 from "./components/path_2";
 
+import Button_script from "./components/button_script";
+
 import Path_3 from "./components/path_3";
+import For_show_array from "./components/for_show_array";
 
 import {BrowserRouter, NavLink, Route} from "react-router-dom";
 
 
 const one_path = "test";
+
+const posts = [
+    {id:1, message: "message 1", age: 31},
+    {id:2, message: "message 2", age: 32},
+    {id:3, message: "message 3", age: 33},
+    {id:4, message: "message 4", age: 34},
+    {id:5, message: "message 5", age: 35}
+];
 
 class App extends Component {
 
@@ -77,6 +88,11 @@ class App extends Component {
                     <NavLink to="/path_1"> Link path_1 </NavLink>
 
                     <Route path="/path_3" render={ () => <Path_3 any_param={this.state.any_custom_param} /> } />
+
+                    <For_show_array custom_posts={posts} />
+
+                    <Button_script />
+
                 </div>
             </BrowserRouter>
         );

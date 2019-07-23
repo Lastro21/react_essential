@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './form.css';
 
 class Path_2 extends Component {
     render() {
