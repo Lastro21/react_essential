@@ -10,6 +10,7 @@ import Path_2 from "./components/path_2";
 import Button_script from "./components/button_script";
 
 import Path_3 from "./components/path_3";
+import SecurityAuth from "./components/security_auth";
 import For_show_array from "./components/for_show_array";
 
 import {BrowserRouter, NavLink, Route} from "react-router-dom";
@@ -76,6 +77,53 @@ class App extends Component {
 
     };
 
+
+
+
+
+
+
+
+
+
+    sendAuthFunc = async (e) => {
+
+        e.preventDefault();
+
+        var userLogin = e.target.elements.userLogin.value;
+        var userPassword = e.target.elements.userPassword.value;
+
+        console.log("Работает!!!!!!!!!!!");
+        console.log(userLogin);
+        console.log(userPassword);
+
+        const api_security = await fetch(`http://localhost:8080/authenticate`,{ method: 'post', headers: {'Content-Type':'application/json'}, body: JSON.stringify({username: 'tokkpasha_2', password: 'password_2'})}).then(response => response.json());
+        console.log(api_security.token);
+    };
+
+
+    sendHelloFunc = async (e) => {
+
+        e.preventDefault();
+
+        console.log("Работает!!!!!!!!!!! sendHelloFunc");
+
+        const api_hello = await fetch(`http://localhost:8080/hello`,{ method: 'post', headers: {'Content-Type':'application/json'}}).then(response => response.json());
+        console.log(api_hello);
+
+    };
+
+
+
+
+
+
+
+
+
+
+
+
     render() {
         return (
             <BrowserRouter>
@@ -88,6 +136,8 @@ class App extends Component {
                     <NavLink to="/path_1"> Link path_1 </NavLink>
 
                     <Route path="/path_3" render={ () => <Path_3 any_param={this.state.any_custom_param} /> } />
+
+                    <Route path="/security_auth" render={ () => <SecurityAuth any_param={this.state.any_custom_param} sendAuthInformation={this.sendAuthFunc} getInfoFromHello={this.sendHelloFunc} /> } />
 
                     <For_show_array custom_posts={posts} />
 
