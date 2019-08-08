@@ -42,7 +42,6 @@ class App extends Component {
 
         var two_part = e.target.elements.route.value;
 
-
         try {
             const api_url = await fetch(`http://localhost:8090/${one_path}/${two_part}`).then(response => response.json());
             console.log(api_url.name);
@@ -73,18 +72,7 @@ class App extends Component {
         } catch (e) {
             console.log("Not answer from server. Reason: " + e);
         }
-
-
     };
-
-
-
-
-
-
-
-
-
 
     sendAuthFunc = async (e) => {
 
@@ -101,28 +89,16 @@ class App extends Component {
         console.log(api_security.token);
     };
 
-
     sendHelloFunc = async (e) => {
 
         e.preventDefault();
 
         console.log("Работает!!!!!!!!!!! sendHelloFunc");
 
-        const api_hello = await fetch(`http://localhost:8080/hello`,{ method: 'post', headers: {'Content-Type':'application/json'}}).then(response => response.json());
-        console.log(api_hello);
+        const api_security = await fetch(`http://localhost:8080/hello`,{ method: 'post', headers: {'Content-Type':'application/json', 'Authorization':'Meta eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2trcGFzaGFfMiIsImV4cCI6MTU2NTI4MTYxNSwiaWF0IjoxNTY1Mjc4MDE1fQ.NCsoBtar8_Hx-lpxZJRNuYGIDGMb0nlkdYdjRadFvypUZ60Oq6HaxXVshf4dg5H2Oo32LsCMlqw-xvKWJVjnFw'}}).then(response => response.json());
+        console.log(api_security);
 
     };
-
-
-
-
-
-
-
-
-
-
-
 
     render() {
         return (
